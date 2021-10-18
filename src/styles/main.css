@@ -13,4 +13,19 @@
 .navbar-nav .nav-link {
   margin-left: 1rem !important;
 }
+
+.cartNavContainer {
+  margin-right: 1.5rem !important;
+}
+
+.cartNavContainer .cartNavIcon {
+  color: #F8F9FA !important;
+  height: 2rem !important;
+}
+
+@media (max-width: 768px) {
+  .cartNavContainer {
+    display: none;
+  }
+}
 /*# sourceMappingURL=main.css.map */

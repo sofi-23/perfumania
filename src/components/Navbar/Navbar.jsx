@@ -12,6 +12,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
+import CartWidget from './CartWidget';
 
 export default function NavBar () {
   
@@ -27,7 +28,6 @@ export default function NavBar () {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-         
 
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
@@ -54,6 +54,7 @@ export default function NavBar () {
    
           </Nav>
         </Collapse>
+          <CartWidget/>
       </Navbar>
         </>
     )

@@ -11,4 +11,17 @@
     .nav-link {
         margin-left: 1rem !important;
     }
+   
+}
+.cartNavContainer {
+    margin-right: 1.5rem !important;
+        .cartNavIcon {
+        color: #F8F9FA !important;
+        height: 2rem !important;
+    }
+}
+@media (max-width: 768px) {
+    .cartNavContainer {
+        display: none;
+    }
 }
