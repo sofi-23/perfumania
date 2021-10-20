@@ -3,7 +3,8 @@
     "mappings": "ACAA,AAAA,SAAS,EAAE,aAAa,CAAC;EACrB,KAAK,EAAE,kBAAkB;CAE5B;;AACD,AAAA,aAAa,CAAC;EACV,WAAW,EAAE,iBAAiB;CACjC;;AAED,AAAA,WAAW,CAAC;EACR,WAAW,EAAE,eAAe;CAK/B;;AAND,AAEI,WAFO,CAEP,SAAS,CAAC;EACN,WAAW,EAAE,eAAe;CAC/B;;AAGL,AAAA,iBAAiB,CAAC;EACd,YAAY,EAAE,iBAAiB;CAKlC;;AAND,AAEQ,iBAFS,CAET,YAAY,CAAC;EACb,KAAK,EAAE,kBAAkB;EACzB,MAAM,EAAE,eAAe;CAC1B;;AAEL,MAAM,EAAE,SAAS,EAAE,KAAK;EACpB,AAAA,iBAAiB,CAAC;IACd,OAAO,EAAE,IAAI;GAChB",
     "sources": [
         "main.scss",
-        "_navbar.scss"
+        "_navbar.scss",
+        "_itemCount.scss"
     ],
     "names": [],
     "file": "main.css"
