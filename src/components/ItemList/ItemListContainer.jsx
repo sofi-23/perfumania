@@ -1,10 +1,9 @@
-import ItemDetail from './ItemDetail'
+import ItemList from './ItemList'
 
-export default  function ItemListContainer({mensaje}) {
+export default  function ItemListContainer() {
     return (
         <>
-            <h1>{mensaje}</h1>
-            <ItemDetail />
+            <ItemList />
         </>
     )
     
