@@ -6,6 +6,7 @@ import './styles/main.css'
 import ItemListContainer from './components/ItemList/ItemListContainer'
 
 function App() {
+
   return (
 <>
   <NavBar />

@@ -32,4 +32,20 @@
 .card {
   width: 18rem !important;
 }
+
+.itemDetail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  margin: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.itemDetail .itemDetailImg {
+  width: 50%;
+  margin: auto;
+}
 /*# sourceMappingURL=main.css.map */
