@@ -1,8 +1,13 @@
 import ItemCount from './ItemCount'
+import {useParams} from 'react-router-dom';
+import {items} from './Items';
+import {useState, useEffect} from 'react';
+
 export default  function ItemDetail({name, image, price,  stock, description}) {
     const onAdd = (count) => {
-            alert("items agregados al carrito: " + count)
-    }
+        alert("items agregados al carrito: " + count)
+}
+
     return (
         <>
         <div className="itemDetail">
@@ -11,9 +16,11 @@ export default  function ItemDetail({name, image, price,  stock, description}) {
             <div>
                 <h3>{name}</h3>
                 <span>{price}</span>
-                <span>{stock} in stock</span>
+                <span>{stock} en stock</span>
                 <p>{description}</p>
-                <ItemCount initial={1} stock={7} onAdd={onAdd} />
+                <ItemCount initial={1} stock={7} onAdd={onAdd} /> 
+                
+               
             </div>
             
         </div>

@@ -48,4 +48,9 @@
   width: 50%;
   margin: auto;
 }
+
+.itemList {
+  -ms-flex-wrap: wrap !important;
+      flex-wrap: wrap !important;
+}
 /*# sourceMappingURL=main.css.map */

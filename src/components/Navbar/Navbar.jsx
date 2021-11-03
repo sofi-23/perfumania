@@ -13,6 +13,7 @@ import {
   DropdownItem,
 } from 'reactstrap';
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
 export default function NavBar () {
   
@@ -34,27 +35,34 @@ export default function NavBar () {
                 FRAGANCIAS
               </DropdownToggle>
               <DropdownMenu right>
+                <Link to="/categoria/femeninas">
                 <DropdownItem>
                   Femeninas
                 </DropdownItem>
+                </Link>
+                <Link to="/categoria/masculinas">
                 <DropdownItem>
                   Masculinas
                 </DropdownItem>
+                </Link>
+                <Link to="/categoria/unisex">
                 <DropdownItem>
                   Unisex
                 </DropdownItem>
+                </Link>
               </DropdownMenu>         
               </UncontrolledDropdown>
+              
             <NavItem>
-              <NavLink href="/components/">MAQUILLAJE</NavLink>
-            </NavItem>  
-            <NavItem>
-              <NavLink href="/components/">GIFT SETS</NavLink>
+              <NavLink href="/categoria/giftSet">GIFT SETS</NavLink>
             </NavItem> 
+            
    
           </Nav>
         </Collapse>
-          <CartWidget/>
+          <Link to="/cart">
+            <CartWidget/>
+          </Link>
       </Navbar>
         </>
     )
