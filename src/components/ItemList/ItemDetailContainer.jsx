@@ -19,7 +19,7 @@ export default function ItemDetailContainer () {
             .then (dataResolve => {
                 setItem(dataResolve[0]);
             })
-            .catch (err => console.log(err)); 
+            .catch (err => alert("Error " + err)); 
         } 
     
 
