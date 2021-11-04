@@ -1,3 +1,32 @@
 .card {
     width: 18rem !important;
+    position: relative !important;
+	display: inline-block !important;
+	height: auto !important;
+	text-align: center;
+	border-radius: 5px !important;
+	transition: .8s;
+	cursor: pointer;
+    &::after {
+        content: "" !important;
+        border-radius: 5px !important;
+        position: absolute !important;
+        z-index: -1 !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        box-shadow: 5px 5px 2px black !important;
+        opacity: 0 !important;
+        transition: .8s;
+        
+    }
+    &:hover {
+        -webkit-transform: scale(1.05, 1.05);
+        transform: scale(1.05, 1.05);  
+    }
+    &:hover::after {
+	    opacity: 1;
+    }
 }
+

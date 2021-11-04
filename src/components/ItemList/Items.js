@@ -47,7 +47,7 @@ export const items = [
     },
     {
         "id": "6",
-        "name": "Mon Guerlain Florale EDP + Spray + Body Lotion",
+        "name": "Mon Guerlain EDP gift set",
         "price": "200 USD",
         "img": "https://cdn.fragrancenet.com/images/photos/600x600/356593.jpg",
         "stock": "10",
@@ -75,3 +75,11 @@ export const items = [
 
 
 ]
+
+
+export const getItems = new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        resolve(items)
+    }, 2000)
+    
+})

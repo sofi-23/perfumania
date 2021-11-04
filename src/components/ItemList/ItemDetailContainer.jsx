@@ -1,37 +1,29 @@
 import {useState, useEffect} from 'react';
-import {items} from './Items';
 import ItemDetail from './ItemDetail';
 import {useParams} from 'react-router-dom';
-
+import {getItems} from './Items'
 
 export default function ItemDetailContainer () {
         const [item, setItem] = useState([]);
         const { id } = useParams();
-
-    
-        const getItem = () => {
-            new Promise ((resolve, reject) => {
-                setTimeout(() => {
-                    const x = items.filter((item)=>item.id == id)
-                    resolve(x)
-                }, 2000)
-            })
+        const [loading, setLoading] = useState(true)
+        console.log("ID " + id)
+        useEffect(() => {
+            getItems
+            .then (data => data.filter((it)=> it.id == id))
             .then (dataResolve => {
                 setItem(dataResolve[0]);
             })
-            .catch (err => alert("Error " + err)); 
-        } 
-    
-
-        useEffect(() => {
-            getItem();
-        }, [])
+            .catch (err => alert("Error " + err))
+            .finally (()=> setLoading(false))
+        }, [id])
 
       console.log("Item" + JSON.stringify(item))
      
     return (
         <>
-                <ItemDetail  id={item.id} name={item.name} image={item.img} price={item.price} stock={item.stock} description={item.description} />
+            {loading ? <h1>Cargando... </h1> :  <ItemDetail   id={item.id} name={item.name} image={item.img} price={item.price} stock={item.stock} description={item.description} />}
+           
         </>
     )
 }

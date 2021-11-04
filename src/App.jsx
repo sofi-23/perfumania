@@ -6,7 +6,7 @@ import './styles/main.css';
 import ItemListContainer from './components/ItemList/ItemListContainer';
 import ItemDetailContainer from './components/ItemList/ItemDetailContainer';
 import Cart from './components/Cart/Cart';
-import ItemDetail from './components/ItemList/ItemDetail'
+
 
 function App() {
 
