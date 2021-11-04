@@ -54,7 +54,9 @@ export default function NavBar () {
               </UncontrolledDropdown>
               
             <NavItem>
+              <Link to="/categoria/giftSet">
               <NavLink href="/categoria/giftSet">GIFT SETS</NavLink>
+              </Link>
             </NavItem> 
             
    
