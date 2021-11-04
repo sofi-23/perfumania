@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import {Link} from 'react-router-dom'
 
-export default function ItemCount ({stock, initial, onAdd}) {
+export default function ItemCount ({stock, initial, onAdd, boolean}) {
     const [count, setCount] = useState(initial);
     const [disabledMax, setDisabledMax] = useState(false);
     const [disabledMin, setDisabledMin] = useState(true)
@@ -29,7 +30,7 @@ export default function ItemCount ({stock, initial, onAdd}) {
                 <span className="p-2">{count}</span>
             <button className="btn btn-outline-primary" disabled={disabledMax || stock === 0} onClick={() => add ()} type="button">+</button>
         </div>
-        <button className="btn btn-primary mt-3" type="button" onClick={() => onAdd(count)}>Agregar al carrito</button>
+        { boolean ? <Link to="/cart"> <button className="btn btn-primary mt-3" type="button">Finalizar compra</button> </Link> :  <button className="btn btn-primary mt-3" type="button" onClick={() => onAdd(count)}>Agregar al carrito</button> }
     </div>
     </>
     )
