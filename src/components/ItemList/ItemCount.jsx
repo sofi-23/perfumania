@@ -30,7 +30,7 @@ export default function ItemCount ({stock, initial, onAdd, boolean}) {
                 <span className="p-2">{count}</span>
             <button className="btn btn-outline-primary" disabled={disabledMax || stock === 0} onClick={() => add ()} type="button">+</button>
         </div>
-        { boolean ? <Link to="/cart"> <button className="btn btn-primary mt-3" type="button">Finalizar compra</button> </Link> :  <button className="btn btn-primary mt-3" type="button" onClick={() => onAdd(count)}>Agregar al carrito</button> }
+        <button className="btn btn-primary mt-3 m-auto w-100" type="button" onClick={() => onAdd(count)}>Agregar al carrito</button> 
     </div>
     </>
     )
