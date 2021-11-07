@@ -24,7 +24,7 @@ export default  function ItemDetail({name, image, price,  stock, description}) {
                         <p>{description}</p> 
                         {  display ? 
                         <Link to="/cart"> <button className="btn btn-primary mt-3 w-100 m-auto" type="button">Finalizar compra</button> </Link> :
-                          <ItemCount initial={1} stock={7} onAdd={onAdd}  /> 
+                          <ItemCount initial={1} stock={stock} onAdd={onAdd}  /> 
                          
                          }
                     </div>

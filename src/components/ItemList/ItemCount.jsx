@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {Link} from 'react-router-dom'
 
-export default function ItemCount ({stock, initial, onAdd, boolean}) {
+export default function ItemCount ({stock, initial, onAdd}) {
     const [count, setCount] = useState(initial);
     const [disabledMax, setDisabledMax] = useState(false);
     const [disabledMin, setDisabledMin] = useState(true)
