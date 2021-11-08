@@ -1,7 +1,9 @@
 import {Link} from 'react-router-dom';
+import { useCartContext } from '../Context/CartContext';
 
 export default function Item ({id, name, price, pictureUrl}) {
- 
+
+
     return (
         <Link to={`/detalle/${id}`}>
         <div className="card mt-3 mb-3">
@@ -10,7 +12,7 @@ export default function Item ({id, name, price, pictureUrl}) {
             <div className="card-body">
                 <h5 className="card-title">{name}</h5>
                 <p className="card-text">{price}</p>
-                <Link to='/cart' className="btn btn-primary">
+                <Link to='/cart' className="btn btn-primary" >
                 Comprar
                 </Link>
             </div>

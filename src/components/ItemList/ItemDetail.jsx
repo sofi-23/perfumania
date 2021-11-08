@@ -1,16 +1,32 @@
 import ItemCount from './ItemCount';
 import {Link} from 'react-router-dom';
+import {useState, createContext} from 'react';
+import {useCartContext} from '../Context/CartContext'
 
-import {useState} from 'react';
 
-export default  function ItemDetail({name, image, price,  stock, description}) {
+export default  function ItemDetail({id,  name, image, price,  stock, description}) {
     const [count, setCount] = useState(0);
     const [display, setDisplay] = useState(false);
+    const {cartList, addItem, isInCart, addOneUnit, handleTotal} = useCartContext()
 
     const onAdd = (count) => {
-        setCount(count)
+        setCount(count) 
         setDisplay(true)
-        alert("items agregados al carrito: " + count)
+        if (!isInCart(id)) {
+            console.log("ID: " + id)
+        addItem({name, cantidad: count, precio: price, subtotal: parseFloat(price*count), id: id })
+        addOneUnit()
+        handleTotal(price, count)
+        }else {
+            const cartAux = cartList.map((it) => { if (it.name == name) {
+                it.cantidad += count
+                it.subtotal += it.precio*count   
+            }
+            return it
+            })
+            addItem(cartAux)
+        }
+        
 
     }
     return (
@@ -19,7 +35,7 @@ export default  function ItemDetail({name, image, price,  stock, description}) {
                     <img className="itemDetailImg" src={image} alt={name} />
                     <div>
                         <h3>{name}</h3>
-                        <span>{price}</span>
+                        <span>{price} USD</span>
                         <span>{stock} en stock</span>
                         <p>{description}</p> 
                         {  display ? 
