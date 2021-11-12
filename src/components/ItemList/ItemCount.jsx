@@ -4,7 +4,13 @@ import {Link} from 'react-router-dom'
 export default function ItemCount ({stock, initial, onAdd}) {
     const [count, setCount] = useState(initial);
     const [disabledMax, setDisabledMax] = useState(false);
-    const [disabledMin, setDisabledMin] = useState(true)
+    const [disabledMin, setDisabledMin] = useState(true);
+    const [button, setButton] = useState(false);
+
+    const handleOnAdd = (count) => { 
+        onAdd(count)
+        setButton(true);
+    }
 
     const add = () => {
         setCount(count + 1)
@@ -30,7 +36,12 @@ export default function ItemCount ({stock, initial, onAdd}) {
                 <span className="p-2">{count}</span>
             <button className="btn btn-outline-primary" disabled={disabledMax || stock === 0} onClick={() => add ()} type="button">+</button>
         </div>
-        <button className="btn btn-primary mt-3 m-auto w-100" type="button" onClick={() => onAdd(count)}>Agregar al carrito</button> 
+        { !button ?
+        <button className="btn btn-primary mt-3 m-auto w-100" type="button" onClick={() => handleOnAdd(count)}>Agregar al carrito</button> 
+        :
+        <button className="btn btn-primary mt-3 m-auto w-100" type="button" onClick={() => onAdd(count)}>Terminar compra</button>
+        }
+        
     </div>
     </>
     )

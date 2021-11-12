@@ -25,7 +25,6 @@ export default  function ItemListContainer() {
             }    
         }, [idCategoria])
     
-        console.log("LOADING: " + loading)
     return (
         <>
         { loading ? <h1>Cargando...</h1> :  <ItemList itemList={item}  /> }

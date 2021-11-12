@@ -25,7 +25,7 @@ export default function NavBar () {
     return (
         <>
        <Navbar color="dark" light expand="md">
-        <NavbarBrand href="/">Perfumanía</NavbarBrand>
+        <Link to="/"><NavbarBrand href="/">Perfumanía</NavbarBrand></Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>

@@ -7,15 +7,16 @@ import {useCartContext} from '../Context/CartContext'
 export default  function ItemDetail({id,  name, image, price,  stock, description}) {
     const [count, setCount] = useState(0);
     const [display, setDisplay] = useState(false);
-    const {cartList, addItem, isInCart, addOneUnit, handleTotal} = useCartContext()
+    const {cartList, addItem, isInCart, addUnit, handleTotal} = useCartContext()
 
     const onAdd = (count) => {
         setCount(count) 
         setDisplay(true)
+        addUnit(count)
         if (!isInCart(id)) {
             console.log("ID: " + id)
         addItem({name, cantidad: count, precio: price, subtotal: parseFloat(price*count), id: id })
-        addOneUnit()
+        
         handleTotal(price, count)
         }else {
             const cartAux = cartList.map((it) => { if (it.name == name) {
@@ -40,9 +41,9 @@ export default  function ItemDetail({id,  name, image, price,  stock, descriptio
                         <p>{description}</p> 
                         {  display ? 
                         <Link to="/cart"> <button className="btn btn-primary mt-3 w-100 m-auto" type="button">Finalizar compra</button> </Link> :
-                          <ItemCount initial={1} stock={stock} onAdd={onAdd}  /> 
-                         
-                         }
+                        <ItemCount initial={1} stock={stock} onAdd={onAdd}  /> 
+                        
+                        }
                     </div>
                 </div>
             
