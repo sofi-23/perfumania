@@ -11,7 +11,7 @@ export default function CartWidget () {
             units > 0 &&
             <div className="cartNavContainer d-flex"> 
                 <FontAwesomeIcon className="cartNavIcon" icon={faShoppingCart} /> 
-                <div className="cartBadge m-auto">{units}</div> 
+                <div className="cartBadge m-auto"><span>{units}</span></div> 
             </div>
         }
         </>

@@ -19,6 +19,23 @@
         color: #F8F9FA !important;
         height: 2rem !important;
     }
+    .cartBadge {
+        padding-left: 9px;
+        padding-right: 9px;
+        -webkit-border-radius: 9px;
+        -moz-border-radius: 9px;
+        border-radius: 9px;
+        span {
+                font-size: 14px;
+                background: cyan;
+                color: blue;
+                padding: 0 5px;
+                vertical-align: top;
+                margin-left: -10px; 
+                border-radius: 9px;
+        }
+    }
+
 }
 @media (max-width: 768px) {
     .cartNavContainer {

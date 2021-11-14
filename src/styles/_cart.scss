@@ -1,0 +1,16 @@
+
+.cartTable {
+    width: 60%;
+    margin: auto;
+    margin-top: 5rem;
+    .trashIcon {
+        width: 30px !important;
+         &:hover {
+        cursor: pointer;
+    }
+    }
+    
+    .cartItemImage {
+    width: 7rem;
+}
+}

@@ -23,6 +23,22 @@
   height: 2rem !important;
 }
 
+.cartNavContainer .cartBadge {
+  padding-left: 9px;
+  padding-right: 9px;
+  border-radius: 9px;
+}
+
+.cartNavContainer .cartBadge span {
+  font-size: 14px;
+  background: cyan;
+  color: blue;
+  padding: 0 5px;
+  vertical-align: top;
+  margin-left: -10px;
+  border-radius: 9px;
+}
+
 @media (max-width: 768px) {
   .cartNavContainer {
     display: none;
@@ -89,5 +105,23 @@
 
 .hero {
   height: 30rem;
+}
+
+.cartTable {
+  width: 60%;
+  margin: auto;
+  margin-top: 5rem;
+}
+
+.cartTable .trashIcon {
+  width: 30px !important;
+}
+
+.cartTable .trashIcon:hover {
+  cursor: pointer;
+}
+
+.cartTable .cartItemImage {
+  width: 7rem;
 }
 /*# sourceMappingURL=main.css.map */

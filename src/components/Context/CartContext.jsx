@@ -25,12 +25,16 @@ export function CartContextProvider ({children}) {
         items
     ]) 
     }
-    function removeItem(itemId) {
-        const remove = cartList.filter(it=> it.id === itemId)
-        setCartList(remove);
+    function removeItem(itemId, itemCant, itemSubtotal) {
+        const remove = cartList.filter(it=> it.id !== itemId)
+        setCartList(remove); 
+        setUnits(units - itemCant)
+        setTotal(total - itemSubtotal)
     }
     function clear() {
         setCartList([])
+        setUnits(0)
+        setTotal(0)
     }
 
     function isInCart(id) {
@@ -47,6 +51,7 @@ export function CartContextProvider ({children}) {
         <CartContext.Provider value={{
             cartList,  
             units, 
+            total,
             isInCart,
             addItem,
             removeItem,

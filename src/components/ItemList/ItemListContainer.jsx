@@ -10,7 +10,6 @@ export default  function ItemListContainer() {
 
     const { idCategoria } = useParams();
 
-    console.log("idCategoria en ItemListCotnainer " + idCategoria);
         useEffect(() => {
             if (idCategoria ) {
                 getItems

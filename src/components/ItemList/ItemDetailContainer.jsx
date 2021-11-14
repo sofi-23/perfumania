@@ -7,7 +7,7 @@ export default function ItemDetailContainer () {
         const [item, setItem] = useState([]);
         const { id } = useParams();
         const [loading, setLoading] = useState(true)
-        console.log("ID " + id)
+        
         useEffect(() => {
             getItems
             .then (data => data.filter((it)=> it.id == id))
@@ -18,7 +18,6 @@ export default function ItemDetailContainer () {
             .finally (()=> setLoading(false))
         }, [id])
 
-      console.log("Item" + JSON.stringify(item))
      
     return (
         <>

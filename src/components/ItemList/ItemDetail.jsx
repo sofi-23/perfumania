@@ -10,22 +10,17 @@ export default  function ItemDetail({id,  name, image, price,  stock, descriptio
     const {cartList, addItem, isInCart, addUnit, handleTotal} = useCartContext()
 
     const onAdd = (count) => {
+
         setCount(count) 
         setDisplay(true)
         addUnit(count)
         if (!isInCart(id)) {
-            console.log("ID: " + id)
-        addItem({name, cantidad: count, precio: price, subtotal: parseFloat(price*count), id: id })
+        addItem({name, cantidad: count, precio: price, subtotal: parseFloat(price*count), id: id, img: image })
         
         handleTotal(price, count)
         }else {
-            const cartAux = cartList.map((it) => { if (it.name == name) {
-                it.cantidad += count
-                it.subtotal += it.precio*count   
-            }
-            return it
-            })
-            addItem(cartAux)
+            const find = cartList.find(it=> isInCart(it.id))
+            find.cantidad += count
         }
         
 
@@ -40,7 +35,7 @@ export default  function ItemDetail({id,  name, image, price,  stock, descriptio
                         <span>{stock} en stock</span>
                         <p>{description}</p> 
                         {  display ? 
-                        <Link to="/cart"> <button className="btn btn-primary mt-3 w-100 m-auto" type="button">Finalizar compra</button> </Link> :
+                        <div  className="d-flex justify-content-around"><Link to="/"><button className="btn btn-primary">Volver</button></Link> <Link to="/cart"> <button className="btn btn-primary  " type="button">Finalizar compra</button> </Link></div> :
                         <ItemCount initial={1} stock={stock} onAdd={onAdd}  /> 
                         
                         }
