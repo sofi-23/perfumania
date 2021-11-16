@@ -1,32 +1,27 @@
 import ItemList from './ItemList';
 import {useParams} from 'react-router-dom';
 import {useState, useEffect} from 'react';
-import {getItems} from './Items';
+import {getFirestore} from '../../services/getFirestore'
 
 export default  function ItemListContainer() {
-    const [item, setItem] = useState([]);
-
+    const [itemList, setItemList] = useState([]);
     const [loading, setLoading] = useState(true);
-
     const { idCategoria } = useParams();
 
-        useEffect(() => {
-            if (idCategoria ) {
-                getItems
-                .then(res=> setItem(res.filter((cat) => cat.category === idCategoria)))
-                .catch(err=> alert("ERROR " + err)) 
-                .finally(setLoading(false))
-            } else {
-                getItems
-                .then(res=> setItem(res))
-                .catch(err=> alert("Error " + err)) 
-                .finally(setLoading(false))
-            }    
-        }, [idCategoria])
+    useEffect(() => {
+        const db = getFirestore()
+        const dbQuery = db.collection("items").get() //items es el nombre de la coleccion
+       // const dbQuery = db.collection("items").doc(id como el del useparams).get() (PARA TRAER 1)
+        dbQuery
+        .then(resp=> setItemList(resp.docs.map( prod => ( { id: prod.id, ...prod.data() } ))))
+        .finally(setLoading(false))
+    }, [idCategoria])
+
     
     return (
         <>
-        { loading ? <h1>Cargando...</h1> :  <ItemList itemList={item}  /> }
+        
+        { loading ? <h1>Cargando...</h1> :  <ItemList itemList={itemList}  /> }
         
 
         </>

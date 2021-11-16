@@ -1,7 +1,7 @@
 import ItemCount from './ItemCount';
 import {Link} from 'react-router-dom';
-import {useState, createContext} from 'react';
-import {useCartContext} from '../Context/CartContext'
+import {useState} from 'react';
+import {useCartContext} from '../../Context/CartContext'
 
 
 export default  function ItemDetail({id,  name, image, price,  stock, description}) {
