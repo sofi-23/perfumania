@@ -7,13 +7,13 @@ export default function CartWidget () {
 
     return (
         <>
-        {
-            units > 0 &&
             <div className="cartNavContainer d-flex"> 
                 <FontAwesomeIcon className="cartNavIcon" icon={faShoppingCart} /> 
+                {
+                units > 0 && 
                 <div className="cartBadge m-auto"><span>{units}</span></div> 
+                }
             </div>
-        }
         </>
         
     )
