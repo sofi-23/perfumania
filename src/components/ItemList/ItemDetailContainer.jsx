@@ -18,7 +18,6 @@ export default function ItemDetailContainer () {
 
             
         }, [id])
-        console.log(item)
 
     return (
         <>
