@@ -7,6 +7,7 @@ import { getFirestore } from '../../services/getFirestore';
 export default function ItemDetailContainer () {
         const [item, setItem] = useState([]);
         const { id } = useParams();
+
         const [loading, setLoading] = useState(true)
         useEffect(() => {
             const db = getFirestore();
@@ -21,7 +22,7 @@ export default function ItemDetailContainer () {
 
     return (
         <>
-            {loading ? <h1>Cargando... </h1> :  <ItemDetail   id={item.id} name={item.name} image={item.img} price={item.price} stock={item.stock} description={item.description} />}
+            {loading ? <h1>Cargando... </h1> :  <ItemDetail   id={id} name={item.name} image={item.img} price={item.price} stock={item.stock} description={item.description} />}
            
         </>
     )

@@ -5,22 +5,21 @@ import {useCartContext} from '../../Context/CartContext'
 
 
 export default  function ItemDetail({id,  name, image, price,  stock, description}) {
-    const [count, setCount] = useState(0);
+   // const [sameProductCount, setSameProductCount] = useState(0);
     const [display, setDisplay] = useState(false);
     const {cartList, addItem, isInCart, addUnit, handleTotal} = useCartContext()
-
+    console.log("ID: " + id)
     const onAdd = (count) => {
-
-        setCount(count) 
         setDisplay(true)
-        addUnit(count)
-        if (!isInCart(id)) {
-        addItem({name, cantidad: count, precio: price, subtotal: parseFloat(price*count), id: id, img: image })
-        
+        addUnit(count) // PARA EL CARTWIDGET
+        if (!isInCart(id)) {   //!!!!!!SIEMPRE DA false  
+        addItem({name, cantidad: count, precio: price, subtotal: parseFloat(price*count), id: id, img: image })   
         handleTotal(price, count)
+        console.log("NO ESTÁ EN EL CARRITO.")
         }else {
             const find = cartList.find(it=> isInCart(it.id))
             find.cantidad += count
+            console.log("ESTA EN EL CARRITO. ")
         }
         
 

@@ -4,12 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { getFirestore } from '../../services/getFirestore'
 import  firebase  from 'firebase';
-import { useState, useEffect } from 'react';
+import "firebase/firestore";
+import { useState } from 'react';
 import {  Button, Form, FormGroup, Label, Input, Table } from 'reactstrap';
 
 
 
 const Cart = () => {
+    
     const [idOrder, setIdOrder] = useState("");
 
     const [formData, setFormData] = useState( {
@@ -28,11 +30,12 @@ const Cart = () => {
         orden.buyer = formData; 
         orden.total = total;
         orden.items = cartList.map(item => { //la lista de compras
-            //const id= item.id;
+            const id= item.id;
             const nombre= item.name;
             const precio=item.precio * item.cantidad;
-            return { nombre, precio}
+            return { nombre, precio }
         }
+        
         )  
         const dbQuery = getFirestore(); 
         dbQuery.collection("orders").add(orden) //agrego la orden a la coleccion "orders"
@@ -45,8 +48,9 @@ const Cart = () => {
         }))  
 
         const itemsToUpdate = dbQuery.collection('items').where(
-            firebase.firestore.FieldPath.documentId(), 'in', cartList.map(items=> items.id)
+            firebase.firestore.FieldPath.documentId(), 'in', cartList.map(i=> i.id)  //UNDEFINED
         )
+
     
         const batch = dbQuery.batch();
 
@@ -55,7 +59,7 @@ const Cart = () => {
          .then( collection=>{
              collection.docs.forEach(docSnapshot => {
                  batch.update(docSnapshot.ref, {
-                     stock: docSnapshot.data().stock - cartList.find(item => item.id === docSnapshot.id).cantidad
+                    stock: docSnapshot.data().stock - cartList.find(item => item.id === docSnapshot.id).cantidad
                  })
              })
             batch.commit().then(res =>{
@@ -72,6 +76,12 @@ const Cart = () => {
             }
         
         console.log(formData)
+        console.log(idOrder)
+        const orderSign = () => {
+            alert("Su número de orden es: " + idOrder)
+            clear()
+        }
+    
     return (
         <>
         {
@@ -131,7 +141,7 @@ const Cart = () => {
                         <Label for="number">Número de teléfono:</Label>
                         <Input type="text" name="phone" id="number" value={formData.phone} />
                     </FormGroup>
-                    <Button className="mt-3">Hacer pedido</Button>
+                    <Button className="mt-3" onClick={()=>orderSign()}>Hacer pedido</Button>
                 </Form>
                 
             </div>
@@ -143,6 +153,8 @@ const Cart = () => {
             </Link>
             </div>
             }
+            
+
         </>
     )
 }
