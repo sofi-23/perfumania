@@ -23,7 +23,6 @@ export function CartContextProvider ({children}) {
     }
 
     function addItem(items) { 
-        console.log("addItem")
         setCartList([
         ...cartList,
         items

@@ -8,18 +8,18 @@ export default  function ItemDetail({id,  name, image, price,  stock, descriptio
    // const [sameProductCount, setSameProductCount] = useState(0);
     const [display, setDisplay] = useState(false);
     const {cartList, addItem, isInCart, addUnit, handleTotal} = useCartContext()
-    console.log("ID: " + id)
+    //console.log("ID: " + id)
     const onAdd = (count) => {
         setDisplay(true)
         addUnit(count) // PARA EL CARTWIDGET
         if (!isInCart(id)) {   //!!!!!!SIEMPRE DA false  
         addItem({name, cantidad: count, precio: price, subtotal: parseFloat(price*count), id: id, img: image })   
         handleTotal(price, count)
-        console.log("NO ESTÁ EN EL CARRITO.")
+        //console.log("NO ESTÁ EN EL CARRITO.")
         }else {
             const find = cartList.find(it=> isInCart(it.id))
             find.cantidad += count
-            console.log("ESTA EN EL CARRITO. ")
+            //console.log("ESTA EN EL CARRITO. ")
         }
         
 

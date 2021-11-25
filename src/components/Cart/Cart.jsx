@@ -5,8 +5,8 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { getFirestore } from '../../services/getFirestore'
 import  firebase  from 'firebase';
 import "firebase/firestore";
-import { useState } from 'react';
-import {  Button, Form, FormGroup, Label, Input, Table } from 'reactstrap';
+import { useState, useEffect } from 'react';
+import {  Button, Form, FormGroup, Label, Input, Table, InputGroupText } from 'reactstrap';
 
 
 
@@ -29,43 +29,41 @@ const Cart = () => {
         orden.date = firebase.firestore.Timestamp.fromDate(new Date());
         orden.buyer = formData; 
         orden.total = total;
-        orden.items = cartList.map(item => { //la lista de compras
-            const id= item.id;
-            const nombre= item.name;
-            const precio=item.precio * item.cantidad;
-            return { nombre, precio }
-        }
-        
+        orden.items = cartList.map( item => { //la lista de compras
+            const id = item.id;
+            const nombre = item.name;
+            const precio = item.precio * item.cantidad;
+            return { id, nombre, precio }
+        }   
         )  
-        const dbQuery = getFirestore(); 
-        dbQuery.collection("orders").add(orden) //agrego la orden a la coleccion "orders"
-        .then(resp=>setIdOrder(resp.id))
-        .catch(err=> console.log(err))
-        .finally(()=>setFormData({ //vuelve a vaciar FormData
-            name:'',
-            phone:'',
-            email: ''
-        }))  
+        const dbQuery = getFirestore()
 
+            dbQuery.collection('orders').add(orden) //agrego la orden a la coleccion "orders"
+            .then( resp => setIdOrder(resp.id) ) //resp es UNDEFINED!!!
+            .catch( err => console.log(err) )
+            .finally(()=>setFormData({ //vuelve a vaciar FormData
+                name:'',
+                phone:'',
+                email: ''
+            })) 
         const itemsToUpdate = dbQuery.collection('items').where(
             firebase.firestore.FieldPath.documentId(), 'in', cartList.map(i=> i.id)  //UNDEFINED
         )
-
-    
+        
         const batch = dbQuery.batch();
 
-
         itemsToUpdate.get()  // por cada item restar del stock la cantidad de el carrito
-         .then( collection=>{
-             collection.docs.forEach(docSnapshot => {
-                 batch.update(docSnapshot.ref, {
+        .then( collection=>{
+            collection.docs.forEach(docSnapshot => {
+                batch.update(docSnapshot.ref, {
                     stock: docSnapshot.data().stock - cartList.find(item => item.id === docSnapshot.id).cantidad
-                 })
-             })
+                })
+            })
             batch.commit().then(res =>{
-                 console.log('batch: ' + res)
-             })
-         })
+                console.log('batch: ' + res)
+            })
+        })
+        clear()
     }
 
         const handleChange=(e)=>{
@@ -75,12 +73,19 @@ const Cart = () => {
                 })
             }
         
-        console.log(formData)
-        console.log(idOrder)
-        const orderSign = () => {
-            alert("Su número de orden es: " + idOrder)
-            clear()
-        }
+        //console.log(formData)
+        
+            useEffect(() => {
+                if (idOrder !== "") {
+                    alert("El id de su orden es: " + idOrder)
+                }
+               
+            }, [idOrder])
+            
+        
+    
+    
+
     
     return (
         <>
@@ -141,9 +146,10 @@ const Cart = () => {
                         <Label for="number">Número de teléfono:</Label>
                         <Input type="text" name="phone" id="number" value={formData.phone} />
                     </FormGroup>
-                    <Button className="mt-3" onClick={()=>orderSign()}>Hacer pedido</Button>
+                    <Button className="mt-3"  >Hacer pedido</Button>
                 </Form>
-                
+            
+            
             </div>
             :
             <div className="d-flex flex-column justify-content-center align-items-center mt-5">
@@ -154,6 +160,8 @@ const Cart = () => {
             </div>
             }
             
+           
+
 
         </>
     )
