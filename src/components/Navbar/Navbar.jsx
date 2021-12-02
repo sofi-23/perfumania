@@ -25,7 +25,7 @@ export default function NavBar () {
     return (
         <>
        <Navbar color="dark" light expand="md">
-        <Link to="/"><NavbarBrand href="/">Perfumanía</NavbarBrand></Link>
+        <Link to="/"><NavbarBrand >Perfumanía</NavbarBrand></Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -55,7 +55,7 @@ export default function NavBar () {
               
             <NavItem>
               <Link to="/categoria/giftSet">
-              <NavLink href="/categoria/giftSet">GIFT SETS</NavLink>
+              <NavLink >GIFT SETS</NavLink>
               </Link>
             </NavItem> 
             

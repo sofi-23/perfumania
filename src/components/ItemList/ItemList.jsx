@@ -9,7 +9,7 @@ const ItemList = memo (({itemList}) => {
             <div className="d-flex justify-content-around container mt-5 itemList">
                 {itemList.map(it=> {
                     return (
-                <Item key={it.id} id={it.id} name={it.name} pictureUrl={it.img} price={it.price} />)
+                            <Item key={it.id} id={it.id} name={it.name} pictureUrl={it.img} price={it.price} />)
                 })}
             </div>
             

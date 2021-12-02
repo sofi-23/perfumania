@@ -14,17 +14,17 @@ function App() {
   return (
 <>
   <CartContextProvider>
-  <BrowserRouter>
-    <NavBar />
-    <Switch>
-      <Route exact path="/">
-        <ItemListContainer />
-      </Route>
-      <Route  path="/categoria/:idCategoria" component={ItemListContainer} />
-      <Route exact path='/item/:id' component={ItemDetailContainer} />
-      <Route exact path='/cart' component={Cart} />
-    </Switch>
-  </BrowserRouter>
+    <BrowserRouter>
+      <NavBar />
+      <Switch>
+        <Route exact path="/">
+          <ItemListContainer />
+        </Route>
+        <Route  path="/categoria/:idCategoria" component={ItemListContainer} />
+        <Route exact path='/item/:id' component={ItemDetailContainer} />
+        <Route exact path='/cart' component={Cart} />
+      </Switch>
+    </BrowserRouter>
   </CartContextProvider>
 </>
   )

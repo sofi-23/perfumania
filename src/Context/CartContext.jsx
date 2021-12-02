@@ -5,21 +5,18 @@ const CartContext = createContext()
 export const useCartContext = ()=> useContext(CartContext) 
 
 export function CartContextProvider ({children}) {
+    
     const [cartList, setCartList] = useState([])
     const [total, setTotal] = useState(0) //TOTAL PRECIO
     const [units, setUnits] = useState(0) //CANTIDAD DE PRODUCTOS TOTALES PARA EL CARRITO
-
 
     function addUnit(count) {
         return (setUnits(units + count)) //UNIDADES TOTALES (PARA EL CARTWIDGET)
         
     }
 
-
-    
     function handleTotal(price, count) {
         return (setTotal(total+price*count)) 
-        
     }
 
     function addItem(items) { 
@@ -28,12 +25,14 @@ export function CartContextProvider ({children}) {
         items
     ]) 
     }
+
     function removeItem(itemId, itemCant, itemSubtotal) {
         const remove = cartList.filter(it=> it.id !== itemId)
         setCartList(remove); 
         setUnits(units - itemCant)
         setTotal(total - itemSubtotal)
     }
+
     function clear() {
         setCartList([])
         setUnits(0)
@@ -41,7 +40,7 @@ export function CartContextProvider ({children}) {
     }
 
     function isInCart(id) {
-        console.log(cartList.map(it=> it.name))
+        //console.log(cartList.map(it=> it.name))
         if (cartList.find((it) => id === it.id)) {
             return true
         } else {
@@ -49,25 +48,21 @@ export function CartContextProvider ({children}) {
         }
     }
 
-
     return (
         <>
-        <CartContext.Provider value={{
-            cartList,  
-            units, 
-            total,
-            isInCart,
-            addItem,
-            removeItem,
-            clear,
-            addUnit, 
-            handleTotal
-             
-          
-
-        }}>
-            {children}
-        </CartContext.Provider>
+            <CartContext.Provider value={{
+                cartList,  
+                units, 
+                total,
+                isInCart,
+                addItem,
+                removeItem,
+                clear,
+                addUnit, 
+                handleTotal
+            }}>
+                {children}
+            </CartContext.Provider>
         </>
     )
 }
