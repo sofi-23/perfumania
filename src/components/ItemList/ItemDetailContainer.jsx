@@ -15,7 +15,7 @@ export default function ItemDetailContainer () {
         dbQuery
             .then( resp=> setItem(resp.data()))
             .catch( err => console.log(err.message))
-            .finally(setLoading(false))
+            .finally(setTimeout(() =>setLoading(false), 2000))
 
             
         }, [id])
@@ -28,7 +28,9 @@ export default function ItemDetailContainer () {
           
             {
             loading ?
-            <h1>Cargando... </h1> :
+            <div className="spinner-container d-flex justify-content-center align-items-center">
+                <div className="spinner"></div> 
+            </div>:
                  <ItemDetail   id={id} name={item.name} image={item.img} price={item.price} stock={item.stock} description={item.description}  />   
               
               }

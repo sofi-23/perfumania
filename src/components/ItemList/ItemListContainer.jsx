@@ -15,14 +15,20 @@ export default  function ItemListContainer() {
         dbQuery.get()
             .then( (res) => setItemList(res.docs.map( prod => ( { id: prod.id, ...prod.data() } ))))
             .catch(err=> console.log(err))
-            .finally(setLoading(false))
+            .finally(setTimeout(() =>setLoading(false), 2000))
 
     }, [idCategoria])
     
     return (
         <>
         
-        { loading ? <h1>Cargando...</h1> :  <ItemList itemList={itemList}  /> }
+        { loading ?  
+            <div className="spinner-container d-flex justify-content-center align-items-center">
+                <div className="spinner"></div> 
+            </div> 
+            :  
+            <ItemList itemList={itemList}  /> 
+        }
         
 
         </>

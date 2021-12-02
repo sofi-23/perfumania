@@ -1,71 +1,32 @@
-import React, { useState } from 'react';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from 'reactstrap';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 
 export default function NavBar () {
-  
-    const [isOpen, setIsOpen] = useState(false);
-  
-    const toggle = () => setIsOpen(!isOpen);
 
-  
     return (
         <>
-       <Navbar color="dark" light expand="md">
-        <Link to="/"><NavbarBrand >Perfumanía</NavbarBrand></Link>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                FRAGANCIAS
-              </DropdownToggle>
-              <DropdownMenu right>
-                <Link to="/categoria/femeninas">
-                <DropdownItem>
-                  Femeninas
-                </DropdownItem>
-                </Link>
-                <Link to="/categoria/masculinas">
-                <DropdownItem>
-                  Masculinas
-                </DropdownItem>
-                </Link>
-                <Link to="/categoria/unisex">
-                <DropdownItem>
-                  Unisex
-                </DropdownItem>
-                </Link>
-              </DropdownMenu>         
-              </UncontrolledDropdown>
-              
-            <NavItem>
-              <Link to="/categoria/giftSet">
-              <NavLink >GIFT SETS</NavLink>
+        <nav className="navbar d-flex justify-content-around">
+          <div className="navbar-brand">
+            <Link className="nav-link nav-brand-link" to="/">Perfumanía</Link>
+          </div>
+          <div className="d-flex justify-content-around w-50">
+              <Link className="nav-link" to="/categoria/femeninas">
+                Femeninas
               </Link>
-            </NavItem> 
-            
-   
-          </Nav>
-        </Collapse>
-          <Link to="/cart">
-            <CartWidget/>
-          </Link>
-      </Navbar>
+              <Link className="nav-link" to="/categoria/masculinas">
+                Masculinas
+              </Link>
+              <Link className="nav-link" to="/categoria/unisex">
+                Unisex
+              </Link>
+              <Link className="nav-link" to="/categoria/giftSet">
+                Gift sets
+              </Link>
+              <Link className="cart-link" to="/cart">
+                <CartWidget/>
+              </Link>
+          </div>
+        </nav>
         </>
     )
 }

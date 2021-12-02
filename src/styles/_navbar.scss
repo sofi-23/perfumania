@@ -1,41 +1,50 @@
-.nav-link, .navbar-brand {
-    color: #F8F9FA !important;
-    
-}
-.navbar-brand {
-    margin-left: 1.5rem !important;
-}
 
-.navbar-nav {
-    margin-left: 2rem !important; 
-    .nav-link {
-        margin-left: 1rem !important;
-    }
-   
-}
-.cartNavContainer {
-    margin-right: 1.5rem !important;
-        .cartNavIcon {
+.navbar {
+    background: #000000 !important;
+    font-size: 17px !important;
+    .nav-link, .navbar-brand {
         color: #F8F9FA !important;
-        height: 2rem !important;
+        
     }
-    .cartBadge {
-        padding-left: 9px;
-        padding-right: 9px;
-        -webkit-border-radius: 9px;
-        -moz-border-radius: 9px;
-        border-radius: 9px;
-        span {
-                font-size: 14px;
-                background: rgb(31, 128, 128);
-                color: blue;
-                padding: 0 5px;
-                vertical-align: top;
-                margin-left: -12px; 
-                border-radius: 9px;
+    .navbar-brand {
+        margin-left: 1.5rem !important;
+        .nav-brand-link {
+            font-size: 22px !important;
+            box-shadow: grey !important;
         }
     }
 
+
+    .cart-link {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+        .cartNavContainer {
+            margin-right: 1.5rem !important;
+            
+            .cartNavIcon {
+            color: #F8F9FA !important;
+            height: 2rem !important;
+        }
+        .cartBadge {
+            padding-left: 9px;
+            padding-right: 9px;
+            -webkit-border-radius: 9px;
+            -moz-border-radius: 9px;
+            border-radius: 9px;
+            span {
+                    font-size: 14px;
+                    background: #BDA388;
+                    color: #F8F9FA;
+                    padding: 0 5px;
+                    vertical-align: top;
+                    margin-left: -12px; 
+                    border-radius: 9px;
+            }
+        }
+
+        }
 }
 @media (max-width: 768px) {
     .cartNavContainer {

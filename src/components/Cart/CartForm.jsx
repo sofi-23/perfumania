@@ -47,7 +47,7 @@ const CartForm = (props) => {
                         <Input  onChange={handleSecondEmail} invalid={emailTwo!== props.formData.email} valid={emailValidation}  type="email" name="email2" id="email2" defaultValue={emailTwo} />  
                         <FormFeedback> Los correos deben coincidir! </FormFeedback>
                     </FormGroup>
-                    {  checkForm() ? <Button className="mt-3"  > Realizar compra </Button> : <Button disabled className="mt-3"  > Realizar compra </Button> }
+                    {  checkForm() ? <Button className="btn-compra mt-3"  > Realizar compra </Button> : <Button disabled className=" btn-compra mt-3"  > Realizar compra </Button> }
                 </Form>
         </>
     )

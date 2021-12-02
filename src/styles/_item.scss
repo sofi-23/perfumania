@@ -28,5 +28,18 @@
     &:hover::after {
 	    opacity: 1;
     }
+    .card-title, .card-text {
+        color: black !important;
+        .card-title {
+            font-weight: bold;
+        }
+    }
+    .btn-primary {
+        background: #BDA388 !important;
+        border:#BDA388;
+        &:hover {
+            background: #af967a !important;
+        }
+    }
 }
 

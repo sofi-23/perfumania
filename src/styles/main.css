@@ -1,38 +1,53 @@
-.nav-link, .navbar-brand {
+.navbar {
+  background: #000000 !important;
+  font-size: 17px !important;
+}
+
+.navbar .nav-link, .navbar .navbar-brand {
   color: #F8F9FA !important;
 }
 
-.navbar-brand {
+.navbar .navbar-brand {
   margin-left: 1.5rem !important;
 }
 
-.navbar-nav {
-  margin-left: 2rem !important;
+.navbar .navbar-brand .nav-brand-link {
+  font-size: 22px !important;
+  -webkit-box-shadow: grey !important;
+          box-shadow: grey !important;
 }
 
-.navbar-nav .nav-link {
-  margin-left: 1rem !important;
+.navbar .cart-link {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.cartNavContainer {
+.navbar .cartNavContainer {
   margin-right: 1.5rem !important;
 }
 
-.cartNavContainer .cartNavIcon {
+.navbar .cartNavContainer .cartNavIcon {
   color: #F8F9FA !important;
   height: 2rem !important;
 }
 
-.cartNavContainer .cartBadge {
+.navbar .cartNavContainer .cartBadge {
   padding-left: 9px;
   padding-right: 9px;
   border-radius: 9px;
 }
 
-.cartNavContainer .cartBadge span {
+.navbar .cartNavContainer .cartBadge span {
   font-size: 14px;
-  background: #1f8080;
-  color: blue;
+  background: #BDA388;
+  color: #F8F9FA;
   padding: 0 5px;
   vertical-align: top;
   margin-left: -12px;
@@ -82,6 +97,23 @@
   opacity: 1;
 }
 
+.card .card-title, .card .card-text {
+  color: black !important;
+}
+
+.card .card-title .card-title, .card .card-text .card-title {
+  font-weight: bold;
+}
+
+.card .btn-primary {
+  background: #BDA388 !important;
+  border: #BDA388;
+}
+
+.card .btn-primary:hover {
+  background: #af967a !important;
+}
+
 .itemDetail {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -98,13 +130,18 @@
   margin: auto;
 }
 
+.itemDetail .btn-primary {
+  background: #BDA388 !important;
+  border: #BDA388;
+}
+
+.itemDetail .btn-primary:hover {
+  background: #af967a !important;
+}
+
 .itemList {
   -ms-flex-wrap: wrap !important;
       flex-wrap: wrap !important;
-}
-
-.hero {
-  height: 30rem;
 }
 
 .cartTable {
@@ -123,5 +160,60 @@
 
 .cartTable .cartItemImage {
   width: 7rem;
+}
+
+.btn-compra {
+  background: #BDA388 !important;
+  border: #BDA388;
+}
+
+.btn-compra:hover {
+  background: #af967a !important;
+}
+
+.btn-outline-primary {
+  background: #BDA388 !important;
+  border: #BDA388;
+  color: #F8F9FA;
+}
+
+.btn-outline-primary:hover {
+  background: #af967a !important;
+}
+
+.spinner-container {
+  margin-top: 40vh;
+}
+
+.spinner-container .spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: transparent;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 /*# sourceMappingURL=main.css.map */
