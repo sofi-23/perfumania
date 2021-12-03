@@ -21,4 +21,4 @@
 $ cd coderhouse-ecommerce
 $ npm install
 </p>
-<h2>Enlace al ecommerce: </h2>
+<h2>Enlace al ecommerce: perfumania.netlify.app </h2>

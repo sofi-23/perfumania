@@ -4,7 +4,9 @@
     font-size: 17px !important;
     .nav-link, .navbar-brand {
         color: #F8F9FA !important;
-        
+        &:hover {
+            color: grey
+        }
     }
     .navbar-brand {
         margin-left: 1.5rem !important;
@@ -19,6 +21,7 @@
         display: flex !important;
         justify-content: center;
         align-items: center;
+        text-decoration: none; 
     }
         .cartNavContainer {
             margin-right: 1.5rem !important;

@@ -7,9 +7,10 @@ import  firebase  from 'firebase';
 import { useState, useEffect } from 'react';
 import {  Table  } from 'reactstrap';
 import  CartForm  from './CartForm'
+import IdModal from './IdModal'
 
 export default function Cart  ()  { 
-    
+    const [modal, setModal] = useState(false);
     const [idOrder, setIdOrder] = useState("");
     const [formData, setFormData] = useState( { name:'', phone:'',email: '',} )
     const { cartList, total, clear, removeItem } = useCartContext();
@@ -64,7 +65,7 @@ export default function Cart  ()  {
             }
 
         useEffect(() => {  
-                idOrder !== "" && alert("El id de su orden es: " + idOrder)                
+                idOrder !== "" && setModal(!modal)               
         }, [idOrder])
 
     return (
@@ -75,7 +76,7 @@ export default function Cart  ()  {
             <Table striped responsive className="cartTable">
                 <thead>
                     <tr>
-                        <th >Foto</th>
+                        <th>Foto</th>
                         <th>Nombre</th>
                         <th>Cantidad</th>
                         <th>Precio unitario</th>
@@ -108,14 +109,18 @@ export default function Cart  ()  {
                 </Table>
                 <CartForm createOrder={createOrder} handleChange={handleChange} formData={formData} />
             </div>
-            :
+            : 
+            <>
+            <IdModal modal={modal} idOrder={idOrder} />
             <div className="d-flex flex-column justify-content-center align-items-center mt-5">
             <h1>El carrito está vacío</h1>
             <Link to="/">
             <button className="btn btn-primary mt-3">Volver al home</button>
             </Link>
             </div> 
+            </>
             }
+        
         </>
     )
 }
