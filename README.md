@@ -18,7 +18,8 @@
 <h2 class="code-line" data-line-start=32 data-line-end=33 ><a id="Tech_32"></a>Instalación</h2>
 <p class="has-line-data" data-line-start="34" data-line-end="35">Es necesario contar con Node js instalado para correr la app. Luego instalar las dependencias y abrir la terminal. Escribir: </p>
 <p>
-$ cd coderhouse-ecommerce
+$ cd coderhouse-ecommerce <br>
 $ npm install
 </p>
-<h2>Enlace al ecommerce: perfumania.netlify.app </h2>
+<h2>Enlace al ecommerce:  </h2>
+<a>perfumania.netlify.app</a>
